@@ -126,6 +126,10 @@ public class Manager extends JFrame {
     private void addManager() {
         String id = txtId.getText();
         String name = txtName.getText();
+        if (id.isEmpty() || name.isEmpty() ) {
+            showMess("Please check your inputs");
+            return ;
+        }
         String type = cbType.getSelectedItem().toString();
         String brand = cbBrand.getSelectedItem().toString();
         String year = txtYear.getText();
@@ -133,10 +137,7 @@ public class Manager extends JFrame {
         Clothes c = new Clothes(id, name, type, brand, year, quantity);
         canList.add(c);
 
-        if (id.isEmpty() || name.isEmpty() ) {
-            showMess("Please check your inputs");
-            return;
-        }
+
     }
 
     private void updateList() {
